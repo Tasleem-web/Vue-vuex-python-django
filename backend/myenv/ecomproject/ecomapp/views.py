@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .products import products
-from .models import Member
+from .models import Member, Status
 from django.db import connection
 
 # Create your views here.
@@ -203,3 +203,20 @@ def getMembersWithStatus(request):
     results = [dict(zip(columns, row)) for row in rows]
     return Response(results)
         
+        
+@api_view(["GET"])
+def getLookUp(request):
+    """Demonstrate SQL LOOKUP using Django ORM to fetch members with related status."""
+    status = Status.objects.all()
+    print("Status Records:", status)
+    results = []
+    for s in status:
+        results.append({
+            "status_id": s.status_id,
+            "status": s.status,
+            "member_id": s.member.id if s.member else None,
+            "member_name": s.member.name if s.member else None,
+            "created_at": s.created_at,
+            "updated_at": s.updated_at,
+        })
+    return Response(results)

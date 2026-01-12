@@ -16,4 +16,5 @@ urlpatterns = [
     path('updateMember/<int:member_id>', views.updateMember, name="updateMember"),
     path('partialUpdateMember/<int:member_id>', views.partialUpdateMember, name="partialUpdateMember"),
     path('members_with_status/', views.getMembersWithStatus, name="getMembersWithStatus"),
+    path('getLookUp/', views.getLookUp, name="getLookUp"),
 ]
