@@ -1,1 +1,1 @@
-web: gunicorn ecomproject.wsgi
+web: cd myenv/ecomproject && gunicorn ecomproject.wsgi --log-file -
