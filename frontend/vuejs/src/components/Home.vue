@@ -200,7 +200,7 @@ export default {
     },
     async onUpdateMember() {
       try {
-        const response = await fetch(`http://127.0.0.1:8000/api/partialUpdateMember/${this.form.id}`, {
+        const response = await fetch(`https://vuevuexpythondjango.onrender.com/api/partialUpdateMember/${this.form.id}`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json'
@@ -232,7 +232,7 @@ export default {
         cancelText: 'No',
         onOk: async () => {
           try {
-            await fetch(`http://127.0.0.1:8000/api/deleteMember/${id}`, { method: 'DELETE' })
+            await fetch(`https://vuevuexpythondjango.onrender.com/api/deleteMember/${id}`, { method: 'DELETE' })
             this.$message.success('Member deleted successfully!')
             await this.fetchMembers()
           } catch (error) {

@@ -30,7 +30,7 @@ export default createStore({
     async fetchMembers({ commit }) {
       commit('setLoading', true)
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/getMembers/')
+        const response = await fetch('https://vuevuexpythondjango.onrender.com/api/getMembers/')
         const data = await response.json()
         commit('setMembers', data)
         commit('setError', null)
@@ -43,7 +43,7 @@ export default createStore({
     async fetchLookUp({ commit }) {
       commit('setLoading', true)
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/getLookUp/')
+        const response = await fetch('https://vuevuexpythondjango.onrender.com/api/getLookUp/')
         const data = await response.json()
         commit('setLookUp', data)
         commit('setError', null)
@@ -59,7 +59,7 @@ export default createStore({
     async addMember({ commit }, member) {
       commit('setLoading', true)
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/members/', {
+        const response = await fetch('https://vuevuexpythondjango.onrender.com/api/members/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
